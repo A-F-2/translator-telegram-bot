@@ -34,7 +34,9 @@ const sendTranslateKeyBoard = (
 ) => {
   const inline_keyboard = keyboard;
 
-  client.set(`user:${chatId}:${field}`, command);
+  client.set(`user:${chatId}:${field}`, command, {
+    EX: 180,
+  });
   bot.editMessageText(textMessage, {
     chat_id: chatId,
     message_id: messageId,
@@ -43,7 +45,9 @@ const sendTranslateKeyBoard = (
 };
 
 const sendLanguage = (bot, chatId, lang, message) => {
-  client.set(`user:${chatId}:lang`, lang);
+  client.set(`user:${chatId}:lang`, lang, {
+    EX: 180,
+  });
 
   bot.sendMessage(chatId, message);
 };
