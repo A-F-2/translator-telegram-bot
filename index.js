@@ -23,6 +23,7 @@ bot.onText(/\/start/, (msg) => {
 
 bot.on("callback_query", (query) => {
   const myActions = ["google", "microsoft", "farazin"];
+  const myLangs = ["fa", "en", "fa_en", "en_fa"];
 
   const command = query.data;
 
@@ -30,7 +31,7 @@ bot.on("callback_query", (query) => {
 
   const messageId = query.message.message_id;
 
-  if (myActions.includes(command))
+  if (myActions.includes(command)) {
     actions.sendTranslateKeyBoard(
       bot,
       chatId,
@@ -40,6 +41,11 @@ bot.on("callback_query", (query) => {
       messages.select_language,
       messageId
     );
+  }
+
+  if (myLangs.includes(command)) {
+    actions.sendLanguage(bot, chatId, command, messages.send_query);
+  }
 });
 
 bot.on("polling_error", (error) => {

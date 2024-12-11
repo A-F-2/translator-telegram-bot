@@ -42,4 +42,10 @@ const sendTranslateKeyBoard = (
   });
 };
 
-module.exports = { homeMenu, sendTranslateKeyBoard };
+const sendLanguage = (bot, chatId, lang, message) => {
+  client.set(`user:${chatId}:lang`, lang);
+
+  bot.sendMessage(chatId, message);
+};
+
+module.exports = { homeMenu, sendTranslateKeyBoard, sendLanguage };
