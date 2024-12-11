@@ -17,9 +17,34 @@ const googleDestinationLanguage = {
         { text: "انگلیسی", callback_data: "en" },
         { text: "فارسی", callback_data: "fa" },
       ],
-      // [{ text: "فرازین", callback_data: "/farazin" }],
     ],
   },
 };
 
-module.exports = { homeInlineKeyboard, googleDestinationLanguage };
+const microsoftDestinationLanguage = {
+  reply_markup: {
+    inline_keyboard: [
+      [
+        { text: "انگلیسی", callback_data: "en" },
+        { text: "فارسی", callback_data: "fa" },
+      ],
+    ],
+  },
+};
+const farazinDestinationLanguage = {
+  reply_markup: {
+    inline_keyboard: [
+      [
+        { text: "انگلیسی", callback_data: "fa_en" },
+        { text: "فارسی", callback_data: "en_fa" },
+      ],
+    ],
+  },
+};
+
+module.exports = {
+  homeInlineKeyboard,
+  googleDestinationLanguage,
+  microsoftDestinationLanguage,
+  farazinDestinationLanguage,
+};
