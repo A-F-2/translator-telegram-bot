@@ -8,8 +8,8 @@ const client = redis.createClient({ url: "redis://127.0.0.1:5458" });
 client.connect();
 
 // config
-const token = "7942722889:AAGJW2XVMCLJzS6Asdnvil0kN-38Pg_pMo4";
-const api_token = "393959:6756e34717c0e";
+const token = "telegram-token";
+const api_token = "api-token";
 const bot = new TelegramBot(token, { polling: true });
 
 // utils
